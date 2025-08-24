@@ -86,7 +86,7 @@ jobs:
         run: |
           cd "${WORKDIR}"
           cp "${GITHUB_WORKSPACE}/configs/${PROFILE}.config" .config
-          yes "" | make oldconfig
+          make defconfig
 
       - name: Overlay files/ (optional)
         run: |
