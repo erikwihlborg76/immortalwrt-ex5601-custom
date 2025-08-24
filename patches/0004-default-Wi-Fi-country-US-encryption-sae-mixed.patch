@@ -1,0 +1,40 @@
+From 833893e5c6c2cb2d18633a2017addb222b465c57 Mon Sep 17 00:00:00 2001
+From: Erik <erik@example.com>
+Date: Thu, 21 Aug 2025 21:57:27 +0200
+Subject: [PATCH] =?UTF-8?q?mtwifi:=20default=20Wi=E2=80=91Fi=20country=20C?=
+ =?UTF-8?q?N=20=E2=86=92=20US=20in=20detect=5Fmtwifi()=20+=20encryption=3D?=
+ =?UTF-8?q?sae-mixed?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Erik <erik@example.com>
+---
+ package/mtk/applications/mtwifi-cfg/files/mtwifi.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh b/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+index c443ac5f8..a2cf316c3 100755
+--- a/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
++++ b/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+@@ -44,7 +44,7 @@ detect_mtwifi() {
+ 					set wireless.${dev}.channel=${channel}
+ 					set wireless.${dev}.txpower=${txpower}
+ 					set wireless.${dev}.htmode=${htmode}
+-					set wireless.${dev}.country=CN
++					set wireless.${dev}.country=US
+ 					set wireless.${dev}.mu_beamformer=1
+ 					set wireless.${dev}.noscan=${htbsscoex}
+ 					set wireless.${dev}.serialize=1
+@@ -54,7 +54,7 @@ detect_mtwifi() {
+ 					set wireless.default_${dev}.network=lan
+ 					set wireless.default_${dev}.mode=ap
+ 					set wireless.default_${dev}.ssid=${ssid}
+-					set wireless.default_${dev}.encryption=none
++					set wireless.default_${dev}.encryption=sae-mixed
+ EOF
+ 				uci -q commit wireless
+ 			}
+-- 
+2.43.0
+
