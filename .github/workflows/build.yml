@@ -103,7 +103,7 @@ jobs:
       - name: Build (download first, then compile)
         run: |
           cd "${WORKDIR}"
-          make
+          make V=sc
 
       - name: Collect artifacts
         run: |
