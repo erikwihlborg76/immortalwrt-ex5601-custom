@@ -93,7 +93,7 @@ jobs:
         run: |
           cd "${WORKDIR}"
           export DOWNLOAD_OFFLINE=1
-          make -j"$(nproc)" || make -j1 V=s
+          make -j"$(nproc)" || make -j1 V=sc
 
       - name: Collect artifacts
         run: |
