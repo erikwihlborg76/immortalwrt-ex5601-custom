@@ -74,4 +74,43 @@ jobs:
 
       - name: Overlay files/ (optional)
         run: |
-          if [ -d "${GITHUB_W_]()
+          if [ -d "${GITHUB_WORKSPACE}/files" ]; then
+            rsync -a "${GITHUB_WORKSPACE}/files/" "${WORKDIR}/files/"
+          fi
+
+      - name: Show version info
+        run: |
+          cd "${WORKDIR}"
+          ./scripts/diffconfig.sh || true
+          ./scripts/getver.sh || true
+
+      - name: Build (download first, then compile)
+        run: |
+          cd "${WORKDIR}"
+          make V=sc
+
+      - name: Collect artifacts
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/artifacts"
+          # Device images
+          cp -a "${WORKDIR}/bin/targets/${OWRT_TARGET}/${OWRT_SUBTARGET}/"* \
+                "${GITHUB_WORKSPACE}/artifacts/" || true
+          # Package repos (userspace + kmods)
+          mkdir -p "${GITHUB_WORKSPACE}/artifacts/packages"
+          cp -a "${WORKDIR}/bin/packages" \
+                "${GITHUB_WORKSPACE}/artifacts/packages/" || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ env.PROFILE }}
+          path: artifacts/
+          compression-level: 9
+          if-no-files-found: warn
+
+      - name: Create GitHub Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*
+          fail_on_unmatched_files: false
