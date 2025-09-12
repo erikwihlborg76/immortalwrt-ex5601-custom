@@ -1,0 +1,48 @@
+From 64f4e96619d9a4a129c269a9b21f20db7e345310 Mon Sep 17 00:00:00 2001
+From: Erik Wihlborg <erikwihlborg76@gmail.com>
+Date: Fri, 12 Sep 2025 21:12:31 +0200
+Subject: [PATCH 3/4] Added support for DFS with Zero-wait
+
+Signed-off-by: Erik Wihlborg <erikwihlborg76@gmail.com>
+---
+ .../files/mt7986/mt7986-ax6000.dbdc.b1.dat             | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/package/mtk/drivers/wifi-profile/files/mt7986/mt7986-ax6000.dbdc.b1.dat b/package/mtk/drivers/wifi-profile/files/mt7986/mt7986-ax6000.dbdc.b1.dat
+index a116464..29058c0 100644
+--- a/package/mtk/drivers/wifi-profile/files/mt7986/mt7986-ax6000.dbdc.b1.dat
++++ b/package/mtk/drivers/wifi-profile/files/mt7986/mt7986-ax6000.dbdc.b1.dat
+@@ -97,17 +97,17 @@ CarrierDetect=0
+ CCKTxStream=4
+ Channel=0
+ ChannelGrp=
+-CountryCode=CN
++CountryCode=US
+ CountryRegion=1
+-CountryRegionABand=0
++CountryRegionABand=7
+ CP_SUPPORT=2
+ CSPeriod=6
+ DBDC_MODE=1
+ DebugFlags=0
+ DefaultKeyID=1
+ DfsCalibration=0
+-DfsDedicatedZeroWait=0
+-DfsEnable=0
++DfsDedicatedZeroWait=3
++DfsEnable=1
+ DfsFalseAlarmPrevent=1
+ DfsZeroWait=0
+ DfsZeroWaitCacTime=255
+@@ -297,7 +297,7 @@ RADIUS_Key8=
+ RADIUS_Key9=
+ RADIUS_Port=1812
+ RADIUS_Server=0
+-RDRegion=
++RDRegion=FCC
+ RED_Enable=1
+ RegDomain=Global
+ RekeyInterval=3600
+-- 
+2.43.0
+

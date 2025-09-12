@@ -1,0 +1,30 @@
+From d3ab7810a8336276213a3d06eaf1da442c46c78f Mon Sep 17 00:00:00 2001
+From: Erik Wihlborg <erikwihlborg76@gmail.com>
+Date: Mon, 1 Sep 2025 21:29:36 +0200
+Subject: [PATCH 2/4] =?UTF-8?q?mtwifi:=20default=20Wi=E2=80=91Fi=20country?=
+ =?UTF-8?q?=20CN=20=E2=86=92=20US=20in=20detect=5Fmtwifi()?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Erik Wihlborg <erikwihlborg76@gmail.com>
+---
+ package/mtk/applications/mtwifi-cfg/files/mtwifi.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh b/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+index c443ac5..7331a14 100755
+--- a/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
++++ b/package/mtk/applications/mtwifi-cfg/files/mtwifi.sh
+@@ -44,7 +44,7 @@ detect_mtwifi() {
+ 					set wireless.${dev}.channel=${channel}
+ 					set wireless.${dev}.txpower=${txpower}
+ 					set wireless.${dev}.htmode=${htmode}
+-					set wireless.${dev}.country=CN
++					set wireless.${dev}.country=US
+ 					set wireless.${dev}.mu_beamformer=1
+ 					set wireless.${dev}.noscan=${htbsscoex}
+ 					set wireless.${dev}.serialize=1
+-- 
+2.43.0
+
