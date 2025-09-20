@@ -36,3 +36,4 @@ The build is automated using **GitHub Actions**:
 
 - Sources are fetched from [padavanonly/immortalwrt-mt798x-24.10](https://github.com/padavanonly/immortalwrt-mt798x-24.10)  
 - Patches from this repository and the device-specific `.config` in the `/configs` folder are applied before compilation.  
+- Compiled builds are available under the **GitHub Actions** section. Direct archive unzipping may fail for unknown reasons, but extracting the file `immortalwrt-mediatek-filogic-zyxel_ex5601-t0-ubootmod-squashfs-sysupgrade.itb` works reliably and can be flashed onto a **zyxel_ex5601-t0-ubootmod** device already running ImmortalWrt.
