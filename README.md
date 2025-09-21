@@ -6,7 +6,7 @@ This build targets **zyxel_ex5601-t0-ubootmod**, based on **OpenWrt 24.10 with k
 
 Key changes include:
 
-- **Zero-Wait DFS** enabled  
+- **Zero-Wait DFS** support added
 - **SQM** support added  
 - **WARP** acceleration kept (debug features removed)  
 - **Toolchain optimizations** applied  
@@ -18,12 +18,13 @@ All essential **MediaTek Wi-Fi features** from the padavanonly build are retaine
 To enable DFS:  
 
 - Set the Wi-Fi channel to **"auto"** on the 5 GHz band.  
-- Ensure the Wi-Fi country code is set to either **SE (Sweden)** or **US (United States)**, DFS parameters are only applied for these regions.
+- DFS is only enabled when the selected Wi-Fi country has a valid regulatory domain mapping.  
+  Refer to `/patches/0001-Added-regdomain-field-and-corrected-several-allowed.patch` for the list of supported mappings.  
 
 ## Changes Compared to padavanonly immortalwrt-mt798x-6.6
 
 - Switched language to **English**, with default Wi-Fi country set to **Sweden (SE)**  
-- Reduced from **multi-profile builds** (GL-MT6000, JDCloud, TP-Link, Xiaomi, …) to a **single target: zyxel_ex5601-t0-ubootmod**  
+- Reduced from **multi-profile builds** to a **single target: zyxel_ex5601-t0-ubootmod**  
 - Added **SQM stack**: `sqm-scripts`, `luci-app-sqm`, `kmod-sched-cake`, `kmod-sched-core`  
 - Removed debug options: `WARP_DBG_SUPPORT`, `WARP_MEMORY_LEAK_DBG` (additional debugging features can be toggled at the end of the `.config`)  
 - Enabled **DFS** and vendor-specific feature **DFS Zero-Wait**  
